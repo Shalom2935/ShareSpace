@@ -1,0 +1,20 @@
+@import '../../index.scss';
+
+.searchdesktop{
+    position: relative;
+    input{
+        background-color: $Light;
+        border: none;
+        border-radius: 30px;
+        height: 3vw;
+        min-height: 30px !important;
+        max-height: 50px !important;
+        width: 50vw;
+    }
+    &_searchicon{
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        background: url(../../../public/assets/icons/search.svg);
+    }
+}

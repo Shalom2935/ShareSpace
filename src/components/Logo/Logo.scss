@@ -1,0 +1,18 @@
+
+@import '../../index.scss';
+
+.logo{
+    width: fit-content;
+    @include flex($direction:column,$gap:9px);
+    &_text{
+        font-family: 'inter';
+        font-weight: $regular;
+    }
+    &_icon{
+        width: 197px;
+        height: 30px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image: url(../../../public/assets/icons/logo.svg);
+    }
+}

@@ -1,0 +1,14 @@
+@import '../../index.scss';
+
+header{
+    background-color: $Brown;
+    padding: 10px 50px ;
+    width: 100vw;
+    color: white;
+    font-size: 20px;
+    @include flex($justify:start, $gap:90px);
+    .logoo{
+        width: fit-content;
+        @include flex($direction:column, $gap:15px);
+    }
+}

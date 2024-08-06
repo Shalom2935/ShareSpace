@@ -1,0 +1,11 @@
+@import '../../index.scss';
+@import url('https://fonts.googleapis.com/css2?family=Julee&display=swap');
+
+.slogan{
+
+    p{
+        font-family: 'julee';
+        font-weight: $regular;
+        font-size: $sizevl;
+    } 
+}
