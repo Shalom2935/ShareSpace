@@ -7,14 +7,26 @@
         border: none;
         border-radius: 30px;
         height: 3vw;
-        min-height: 30px !important;
+        min-height: 40px !important;
         max-height: 50px !important;
         width: 50vw;
+        padding: 5px 40px;
+        color: black;
+        font-size: $sizevl;
+        &:focus{
+            outline: none;
+        }
     }
     &_searchicon{
         position: absolute;
-        width: 25px;
-        height: 25px;
-        background: url(../../../public/assets/icons/search.svg);
+        left:15px;
+        top:50%;
+        transform: translateY(-40%);
+    }
+    &_filtericon{
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-40%);
     }
 }
