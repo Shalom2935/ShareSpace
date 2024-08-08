@@ -1,9 +1,10 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import '../NavBar.scss'
 
 function ContactLink() {
   return (
-    <div className='navlink'>
+    <NavLink className={({ isActive }) => isActive ? 'navlink active' : 'navlink'}>
         <div className="navlink_icon">
             <svg width="19" height="26" viewBox="0 0 19 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M9.04167 11.0833C12.1022 11.0833 14.5833 8.60224 14.5833 5.54167C14.5833 2.48109 12.1022 0 9.04167 0C5.98109 0 3.5 2.48109 3.5 5.54167C3.5 8.60224 5.98109 11.0833 9.04167 11.0833Z" fill="black"/>
@@ -11,7 +12,7 @@ function ContactLink() {
             </svg>
         </div>
         <div className="navlink_text">Contact Us</div>
-    </div>
+    </NavLink>
   )
 }
 

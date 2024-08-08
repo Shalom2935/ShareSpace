@@ -7,19 +7,24 @@ import ContactLink from './NavLinks/ContactLink'
 import './NavBar.scss'
 
 // Define an array of links for easier maintenance
+
 const links = [
-  { Component: HomeLink, label: 'Home' },
-  { Component: ImportLink, label: 'Import' },
-  { Component: FilesLink, label: 'Files' },
-  { Component: DownloadsLink, label: 'Downloads' },
-  { Component: ContactLink, label: 'Contact' },
+  { Component: HomeLink, path: '/', label: 'Home' },
+  { Component: ImportLink, path: '/import', label: 'Import' },
+  { Component: FilesLink, path: '/files', label: 'Files' },
+  { Component: DownloadsLink, path: '/downloads', label: 'Downloads' },
+  { Component: ContactLink, path: '/contact', label: 'Contact' },
 ]
 
 function NavBar() {
   return (
     <div className='navbar'>
-      {links.map(({ Component, label }, index) => (
-        <Component key={index} aria-label={label} />
+      {links.map(({ Component, path, label }, index) => (
+        <Component 
+          key={index} 
+          to = {path}
+          aria-label={label} 
+        />
       ))}
     </div>
   )
