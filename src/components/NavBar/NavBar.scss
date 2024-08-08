@@ -8,19 +8,31 @@
     background-color: $Light;
     width: 270px;
     height: 450px;
-    padding-top: 50px;
+    padding: 50px 10px;
+    @include flex($direction:column,$justify:flex-start,$align:flex-start,$gap:5px);
 
     .navlink{
-        @include flex($justify:start);
+        @include flex($justify:flex-start);
         padding: 10px 15px;
+        width: 100%;
         &_icon{
             width: 30px;
-            height: 30px;
+            height: 25px;
             @include flex;
         }
         &_text{
             font-size: $sizexl;
             font-weight: $semibold;
+            color: black;
+        }
+        &.active{
+            background-color:darken($GreyLight,20%);
+            border-radius: 30px;
+            
+        }
+        &:hover{
+            background-color: $GreyLight;
+            border-radius: 30px;
         }
     }
 
