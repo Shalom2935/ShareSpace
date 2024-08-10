@@ -1,6 +1,9 @@
 @import '../../index.scss';
 
 header{
+    position: fixed;
+    left: 0;
+    top: 0;
     background-color: $Brown;
     padding: 10px 50px ;
     width: 100vw;
