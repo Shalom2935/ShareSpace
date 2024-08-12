@@ -1,0 +1,8 @@
+@import '../../index.scss';
+
+.grid{
+    @include flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    //column-gap: 30px;
+}

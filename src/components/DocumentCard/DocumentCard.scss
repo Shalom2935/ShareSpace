@@ -7,6 +7,50 @@
     border-radius: 15px;
     margin-bottom: 10px;
     box-shadow: 0px 0px 16px 3px rgba(149, 164, 175, 0.25);
+    padding: 20px 20px 15px 20px;
 
     @include flex(column,space-between,flex-start,13px);
+    &_intro{
+        @include flex($gap:10px);
+        font-size: $sizevl;
+        width: 100%;
+        &__title{
+            width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow:ellipsis;
+            
+        }
+        &__icon.pdf{
+            width: 40px;
+            height: 40px;
+            background: url(./pdf.svg);
+            background-repeat: no-repeat;
+            background-size: contain;    
+        }
+        &__icon.word{
+            width: 40px;
+            height: 40px;
+            background: url(./word.svg);
+            background-repeat: no-repeat;
+            background-size: contain;    
+        }
+    }
+    &_content{
+        width: 100%;
+        height: 158px;
+        background-color: white;
+        border-radius: 6px;
+    }
+    &_action{
+        width: 100%;
+        @include flex($justify: space-between);
+        &__view, &__download{
+            background: none;
+            border: none;
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    }
 }
