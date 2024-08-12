@@ -4,7 +4,7 @@ import Slogan from '../Slogan/Slogan'
 import SearchBarDesktop from '../SearchBar/SearchBarDesktop'
 import './Header.scss'
 
-function Header() {
+function Header({ searchTerm, onSearch, onSearchClick }) {
   return (
     <div>
         <header>
@@ -12,7 +12,7 @@ function Header() {
             <Logo />
             <Slogan />
           </div>
-          <SearchBarDesktop />  
+          <SearchBarDesktop searchTerm={searchTerm} onSearch={onSearch} onSearchClick={onSearchClick} />  
         </header>
     </div>
   )
