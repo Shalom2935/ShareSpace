@@ -1,10 +1,11 @@
-import React from 'react';
-import './SearchBarDesktop.scss';
+import React from 'react'
+import { handleSearchOnEnter } from '../../utils/handleSearchOnEnter'
+import './SearchBarDesktop.scss'
 
 function SearchBarDesktop({ searchTerm, onSearch, onSearchClick }) {
   const handleInputChange = (e) => {
-    onSearch(e.target.value);
-  };
+    onSearch(e.target.value)
+  }
 
   return (
     <div className='searchdesktop'>
@@ -13,7 +14,8 @@ function SearchBarDesktop({ searchTerm, onSearch, onSearchClick }) {
         name='search' 
         placeholder='Search'
         value={searchTerm}
-        onChange={handleInputChange} 
+        onChange={handleInputChange}
+        onKeyDown={(event) => handleSearchOnEnter(event, onSearchClick)} 
       />
       <div className="searchdesktop_searchicon" onClick={onSearchClick}>
         <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -29,4 +31,4 @@ function SearchBarDesktop({ searchTerm, onSearch, onSearchClick }) {
   )
 }
 
-export default SearchBarDesktop;
+export default SearchBarDesktop

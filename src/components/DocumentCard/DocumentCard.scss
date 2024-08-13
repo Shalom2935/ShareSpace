@@ -12,9 +12,11 @@
     @include flex(column,space-between,flex-start,13px);
     &_intro{
         @include flex($gap:10px);
-        font-size: $sizevl;
+        
         width: 100%;
         &__title{
+            font-size: $sizevl;
+            font-weight: $regular;
             width: 100%;
             white-space: nowrap;
             overflow: hidden;
