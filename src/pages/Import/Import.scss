@@ -1,0 +1,18 @@
+@import '../../index.scss';
+
+.import{
+    &_main{
+        margin-top: 160px;
+        margin-left: 285px;
+        padding: 20px 30px;
+        
+        h1{
+            font-size: calc($sizexl + 0.25vw);
+            margin-bottom: 10px;
+        }
+        hr{
+            width: 50%;
+            margin-bottom: 20px;
+        }
+    }
+}
