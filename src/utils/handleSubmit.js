@@ -1,4 +1,6 @@
 import axios from "axios"
+import { displaySuccess } from "../components/ImportSuccess/displaySuccess";
+import { displayFail } from "../components/ImportFail/displayFail";
 
 export const handleSubmit= (event) => {
     event.preventDefault()
@@ -14,9 +16,11 @@ export const handleSubmit= (event) => {
     axios.post('http://localhost:3001/submit-form', formData)
     .then(response => {
         console.log('Success:', response.data)
+        displaySuccess()
     })
     .catch(error => {
         console.error('Error:', error)
+        displayFail()
     })
 
 }

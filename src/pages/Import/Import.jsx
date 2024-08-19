@@ -3,6 +3,7 @@ import Header from '../../components/Header/Header'
 import NavBar from '../../components/NavBar/NavBar'
 import ImportForm from '../../components/ImportForm/ImportForm'
 import ImportSuccess from '../../components/ImportSuccess/ImportSuccess'
+import ImportFail from '../../components/ImportFail/ImportFail'
 import './Import.scss'
 
 function Import() {
@@ -15,6 +16,7 @@ function Import() {
         <hr />
         <ImportForm />
         <ImportSuccess />
+        <ImportFail />
       </main>
     </div>
   )
