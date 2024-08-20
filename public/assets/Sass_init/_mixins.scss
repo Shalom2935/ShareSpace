@@ -8,7 +8,7 @@
   }
   
   // Media query
-  @mixin media-breakpoint-up($breakpoint, $direction: max-width) {
+  @mixin media($breakpoint, $direction: max-width) {
     @media screen and ($direction: $breakpoint) {
       @content;
     }

@@ -10,6 +10,9 @@ header{
     color: white;
     font-size: 20px;
     @include flex($justify:flex-start, $gap:90px);
+    @include media($small){
+        justify-content: center;
+    }
     .logoo{
         width: fit-content;
         @include flex($direction:column, $gap:15px);

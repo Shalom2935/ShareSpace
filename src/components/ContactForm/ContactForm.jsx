@@ -1,9 +1,10 @@
 import React from 'react'
 import './ContactForm.scss'
+import { handleSubmitContact } from './handleSubmitContact'
 
 function ContactForm() {
   return (
-    <form className='contact_form' action="" method="post">
+    <form className='contact_form' action="" method="post" onSubmit={handleSubmitContact}>
     <div className="name"> 
       <label htmlFor="name">Name</label>
       <input type="text" name='name' placeholder='Enter your name' required />
@@ -14,7 +15,7 @@ function ContactForm() {
     </div> 
     <div className="phone">
       <label htmlFor="phone">Phone</label>
-      <input type="number" name='phone' />
+      <input type="text" name='phone' />
     </div>
     <div className="school">
       <label htmlFor="school">School</label>

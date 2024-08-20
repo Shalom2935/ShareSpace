@@ -1,0 +1,68 @@
+@import '../../index.scss';
+
+.contactfail{
+
+    .content{
+        position: absolute;
+        z-index: 999;
+        background-color:white;
+        box-shadow: 0px 0px 18.2px 6px rgba(0, 0, 0, 0.25);   
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: 300px;
+        height: auto;
+        border-radius: 15px;
+        padding: 10px;
+        text-align: center;
+        @include flex($direction:column,$gap:15px);
+        .icon{
+            width: 100%;
+            display: flex;
+            svg{
+                margin: auto;
+            }
+        }
+    }
+    .overlay{
+        position: fixed;
+        z-index: 99;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-color: black;
+        opacity: 10%;
+    }
+    .action{
+        @include flex($gap:10px);
+        button{
+            padding: 7px 15px;
+            border: none;
+            border-radius: 30px;
+            // &.retry{
+            //     background-color: $Brown;
+            //     color: white;
+            //     &:hover{
+            //         cursor: pointer;
+            //         background-color: darken($Brown,10%);
+            //     }
+            // }     
+            &.cancel{
+                background-color: $Brown;
+                color: white;
+                &:hover{
+                    cursor: pointer;
+                    background-color: white;
+                    color: $Brown;
+                    font-weight: $semibold;
+                    border: 2px solid $Brown;
+                    transition: background-color 0.3s ease-in-out;
+                }
+            }
+        }        
+    }
+    &.visually-hidden{
+        visibility: hidden;
+    }
+}
