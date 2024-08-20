@@ -1,0 +1,87 @@
+@import '../../index.scss';
+
+.contact_form{
+    @include flex(column,center,flex-start,15px);
+    & > div:not(.send){
+        @include flex($justify:flex-start,$align:center);
+        label{
+            width: 100px;
+            color: black;
+            font-weight: $semibold;
+            font-size: $sizel;
+        }
+        input{
+            padding: 5px;
+        }
+        input, select{
+            height: 25px;
+            width: 150px;
+            &:focus{
+                outline: 1px solid $Brown;
+            }
+        }
+        .level_inputs{
+            @include flex($gap:10px);
+            width: 150px;
+            select:last-child{
+                flex: 3;
+            }
+            select:first-child{
+                flex: 1;
+            }
+        }
+    }
+    textarea{
+        width: 400px;
+        height: 150px;
+        padding: 7px;
+        line-height: 17px;
+    }
+    .send{
+        position: relative;
+        &:hover{
+            .submit{
+            background-color: white;
+            color: $Brown;
+            font-weight: $semibold;
+            outline: 2px solid $Brown;
+            transition: background-color 0.3s ease-in-out;  
+            }
+            .send_icon{
+                background-color: $Brown;
+                svg{
+                    path{
+                        fill: white;
+                        border: none;
+                        transition: all 0.3s ease-in-out;
+                    }
+                }
+            }
+
+        }
+        .submit{
+            text-align: left;
+            padding: 7px 18px;
+            width: 80px;
+            background-color: $Brown;
+            color: white;
+            font-size: $sizesm;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+        &_icon{
+            position: absolute;
+            right: 0;
+            top: 0;
+    
+            background-color: white;
+            border: 2px solid $Brown;
+            height: 28px;
+            width: 28px;
+            @include flex;
+            border-radius: 50%;
+        }
+    }
+
+}
