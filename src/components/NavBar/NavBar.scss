@@ -1,39 +1,118 @@
 @import '../../index.scss';
 
-.navbar{
-    position: fixed;
-    top:140px;
-    left: 15px;
-    border-radius: 15px;
-    background-color: $Light;
-    width: 270px;
-    height: 450px;
-    padding: 50px 10px;
-    @include flex($direction:column,$justify:flex-start,$align:flex-start,$gap:5px);
+.nav{
+    .navbar{
+        position: fixed;
+        z-index: 999;
+        top:140px;
+        left: 15px;
+        border-radius: 15px;
+        background-color: $Light;
+        width: 270px;
+        height: 450px;
+        padding: 50px 10px;
+        @include flex($direction:column,$justify:flex-start,$align:flex-start,$gap:5px);
 
-    .navlink{
-        @include flex($justify:flex-start);
-        padding: 10px 15px;
-        width: 100%;
-        &_icon{
-            width: 30px;
-            height: 25px;
-            @include flex;
-        }
-        &_text{
-            font-size: $sizexl;
-            font-weight: $semibold;
-            color: black;
-        }
-        &.active{
-            background-color:darken($GreyLight,20%);
-            border-radius: 30px;
-            
-        }
-        &:hover{
-            background-color: $GreyLight;
-            border-radius: 30px;
+        .navlink{
+            @include flex($justify:flex-start);
+            padding: 10px 15px;
+            width: 100%;
+            &_icon{
+                width: 30px;
+                height: 25px;
+                @include flex;
+            }
+            &_text{
+                font-size: $sizexl;
+                font-weight: $semibold;
+                color: black;
+            }
+            &.active{
+                background-color:darken($GreyLight,20%);
+                border-radius: 30px;
+                
+            }
+            &:hover{
+                background-color: $GreyLight;
+                border-radius: 30px;
+            }
         }
     }
+    @include media($small){
+        .navbar{
+            top: 0;
+            left: -300px;
+            height: 100vh;
+            background-color: $Brown;
+            border-radius: 0;
+            color: white;
+            transition: left 0.3s;
+            .nav_personal{
+                margin-top: 30px;
+                display: flex;
+                width: 100%;
+                .close{
+                    position: absolute;
+                    top: 40px;
+                    left: 15px;
+                }
+            }
+            hr{
+                margin: auto;
+                width: 90%;
+                margin-top: 15px;
+                margin-bottom: 30px;
+            }
+            &_logo{
+                background: url(../Logo/logo.svg);
+                width: 197px;
+                height: 30px;
+                background-repeat: no-repeat;
+                background-size: cover;
+                margin: auto;
+            }
+            .navlink{
+                &_icon{
+                    svg{
+                        path{
+                            fill: white;
+                        }
+                    }
+                }
+                &_text{
+                    font-weight: $regular;
+                    color: white;
+                }
+                &.active{
+                    background-color:lighten($Brown,10%);
+                    border-radius: 30px;
+                    
+                }
+                &:hover{
+                    background-color: $GreyLight;
+                    border-radius: 30px;
+                }
+            }
+            &.active{
+                left: 0;
+                transition: all 0.3s;
+            }
+        }
+        .navbar_overlay{
+            display: none;
+            position: fixed;
+            z-index: 99;
+            background-color: black;
+            opacity: 10%;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            &.active{
+                display: block;
+            }
 
+        }
+
+    }
 }

@@ -10,11 +10,28 @@ header{
     color: white;
     font-size: 20px;
     @include flex($justify:flex-start, $gap:90px);
-    @include media($small){
-        justify-content: center;
-    }
     .logoo{
         width: fit-content;
         @include flex($direction:column, $gap:15px);
+    }
+    .hamburger, .search{
+        display: none;
+    }
+    @include media($small){
+        justify-content: center;
+        .hamburger{
+            display: block;
+            position: absolute;
+            width: fit-content;
+            left: 15px;
+            top: 40px;
+        }
+        .search{
+            display: block;
+            position: absolute;
+            width: fit-content;
+            top: 40;
+            right: 15px;
+        }
     }
 }

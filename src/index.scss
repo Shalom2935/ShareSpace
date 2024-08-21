@@ -2,3 +2,7 @@
 @import '../public/assets/Sass_init/reset';
 @import '../public/assets/Sass_init/variables';
 
+body{
+    max-width:100vw;
+    overflow-x: hidden;
+}
