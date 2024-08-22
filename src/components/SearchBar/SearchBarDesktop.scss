@@ -1,6 +1,9 @@
 @import '../../index.scss';
 
 .searchdesktop{
+    &.disabled{
+        pointer-events: none;
+    }
     position: relative;
     input{
         background-color: $Light;

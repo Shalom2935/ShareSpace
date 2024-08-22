@@ -4,7 +4,7 @@ import Suggestion from '../Suggestion/Suggestion'
 import './SearchBarDesktop.scss'
 
 
-function SearchBarDesktop({ searchTerm, onSearch, onSearchClick }) {
+function SearchBarDesktop({ searchTerm, onSearch, onSearchClick, disable }) {
 
   const [isFocus, setIsFocus] = useState(false)
   const handleInputChange = (e) => {
@@ -12,7 +12,7 @@ function SearchBarDesktop({ searchTerm, onSearch, onSearchClick }) {
   }
 
   return (
-    <div className='searchdesktop'>
+    <div className={`searchdesktop ${disable? 'disabled' : ''}`}>
       <input 
         type="text" 
         name='search' 

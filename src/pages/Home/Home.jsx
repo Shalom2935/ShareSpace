@@ -29,7 +29,7 @@ const Home = () => {
 
   return (
     <div className='home'>
-      <Header searchTerm={searchTerm} onSearch={setSearchTerm} onSearchClick={handleSearch} />
+      <Header searchTerm={searchTerm} onSearch={setSearchTerm} onSearchClick={handleSearch}  disableSearch={false}/>
       <NavBar />
       <main className="home_main">
         <h1>Ressources available in every subject</h1>
