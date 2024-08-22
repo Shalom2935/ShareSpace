@@ -5,6 +5,7 @@ import '../NavBar.scss'
 function FilesLink({ to, ariaLabel }) {
   return (
     <NavLink
+      style={{pointerEvents : 'none', opacity: '70%'}}
       to={to}
       className={({ isActive }) => isActive ? 'navlink active' : 'navlink'}
       aria-label={ariaLabel}  
