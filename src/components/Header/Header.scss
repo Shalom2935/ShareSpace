@@ -19,6 +19,7 @@ header{
     }
     @include media($small){
         justify-content: center;
+        position: fixed;
         .hamburger{
             display: block;
             position: absolute;

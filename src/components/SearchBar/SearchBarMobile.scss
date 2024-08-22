@@ -1,0 +1,44 @@
+@import '../../index.scss';
+
+.searchmobile{
+    display: none;
+    background: transparent;
+    backdrop-filter: blur(20px);
+    @include media($small){
+         display: block;
+         position: fixed;
+         top: 120px;
+         left: 25px;
+         right: 25px;
+        border-bottom: 1px solid $GreyDark;
+        input{
+            width: 100% !important;
+            position: relative;
+            background: none;
+            border: none;
+            height: 3vw;
+            min-height: 40px !important;
+            max-height: 50px !important;
+            width: 50vw;
+            padding: 5px 25px;
+            color: black;
+            font-size: $sizevl;
+            &:focus{
+                outline: none;
+            }
+        }
+        &_searchicon{
+            position: absolute;
+            left:0;
+            top:50%;
+            transform: translateY(-40%);
+            cursor: pointer;
+        }
+        &_filtericon{
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-40%);
+        }
+    }
+}

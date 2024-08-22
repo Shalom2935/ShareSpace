@@ -4,4 +4,7 @@
     @include flex;
     flex-wrap: wrap;
     justify-content: flex-start;
+    @include media(400px){
+        gap: 10px;
+    }
 }

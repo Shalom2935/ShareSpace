@@ -3,7 +3,7 @@ import DocumentCard from '../DocumentCard/DocumentCard'
 import './DocumentGrid.scss'
 
 
-const DocumentGrid = ({ documents }) => {
+const DocumentGrid = ({ documents, onSearchClick }) => {
 
     return (
         <div className='grid'>

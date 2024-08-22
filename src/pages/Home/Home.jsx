@@ -26,6 +26,7 @@ const Home = () => {
     setFilteredDocuments(filteredDocs);
   }
 
+
   return (
     <div className='home'>
       <Header searchTerm={searchTerm} onSearch={setSearchTerm} onSearchClick={handleSearch} />
@@ -33,7 +34,7 @@ const Home = () => {
       <main className="home_main">
         <h1>Ressources available in every subject</h1>
         <hr />
-        <DocumentGrid documents={filteredDocuments} />
+        <DocumentGrid documents={filteredDocuments}/>
       </main>
     </div>
   )

@@ -24,9 +24,14 @@ function Suggestion({ searchTerm, isFocus }) {
 
 
   return (
-    <div className='suggestion'>
+    <div className='suggestion hide'>
         {filteredList.map(e => (
-            <div className="suggestion_item" key={e.id}>{e.title}</div>
+            <div 
+              className="suggestion_item" 
+              key={e.id}
+              >
+              {e.title}
+              </div>
         ))}
     </div>
   )

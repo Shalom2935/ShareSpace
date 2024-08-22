@@ -55,4 +55,28 @@
             }
         }
     }
+    @include media($small) {
+        width: 170px;
+        height: 170px;
+        padding: 15px 10px 7px 10px;
+        gap: 7px;
+        &_intro{
+            &__title{
+                font-size: $sizesm;
+            }
+            &__icon{
+                width: 18px !important;
+                height: 23px !important;
+                
+            }
+            //margin-bottom: 7px;
+        }
+        &_action{
+            &__view,&__download{
+                svg{
+                    width: 18px;
+                }
+            }
+        }
+    }
 }
