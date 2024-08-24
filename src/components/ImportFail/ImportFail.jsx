@@ -2,7 +2,7 @@ import React from 'react'
 import { hideFail } from './hideFail'
 import './ImportFail.scss'
 
-function ImportFail() {
+function ImportFail({ errorMessage }) {
   return (
     <div className='impfail visually-hidden'>
     <div className="content">
@@ -12,7 +12,7 @@ function ImportFail() {
         <path d="M41 44L80.5 78M41 78L80.5 44" stroke="#EB0D0D" strokeWidth="9"/>
         </svg>
       </div>
-      <p className='message'>There was an error adding the file please retry</p>
+      <p className='message'>{errorMessage}</p>
       <div className="action">
         {/* <button className='retry' onClick={handleSubmit}>Retry</button> */}
         <button className='cancel' onClick={hideFail}>Close</button>

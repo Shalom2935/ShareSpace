@@ -1,16 +1,44 @@
 import React, { useState } from 'react'
+import axios from 'axios'
 import './ImportForm.scss'
-import { handleSubmit } from '../../utils/handleSubmit'
+import { displayFail } from '../ImportFail/displayFail'
+import { displaySuccess } from '../ImportSuccess/displaySuccess'
+import ImportFail from '../ImportFail/ImportFail'
 
 function ImportForm() {
   const [fileName, setFileName] = useState('')
+  const [errorMessage, setErrorMessage] = useState('')
 
     const handleFileChange = (event) => {
       setFileName(event.target.files[0]?.name || '')
     }
 
+    const handleFormSubmit = (event) => {
+      event.preventDefault();
+      
+      const formData = new FormData();
+      formData.append('title', event.target.title.value);
+      formData.append('type', event.target.type.value);
+      formData.append('semester', event.target.semester.value);
+      formData.append('subfield', event.target.subfield.value);
+      formData.append('description', event.target.description.value);
+      formData.append('file', event.target.file.files[0]);
+  
+      axios.post('http://localhost:5000/upload', formData)
+        .then(response => {
+          console.log('Success:', response.data);
+          displaySuccess();
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          setErrorMessage(error.response?.data?.message || 'An unexpected error occurred.');
+          displayFail();
+        });
+    };
+
   return (
-    <form className='import_form' action="" method="post" onSubmit={handleSubmit}>
+    <div>
+    <form className='import_form' action="" method="post" onSubmit={handleFormSubmit}>
     <div className="title"> 
       <label htmlFor="title">Title</label>
       <input type="text" name='title' required />
@@ -74,6 +102,8 @@ function ImportForm() {
               </div>
     <input className='submit' type="submit" value={'SHARE'} />
   </form>
+  <ImportFail errorMessage = {errorMessage} />
+  </div>
   )
 }
 
