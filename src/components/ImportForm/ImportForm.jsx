@@ -4,10 +4,13 @@ import './ImportForm.scss'
 import { displayFail } from '../ImportFail/displayFail'
 import { displaySuccess } from '../ImportSuccess/displaySuccess'
 import ImportFail from '../ImportFail/ImportFail'
+import ImportSuccess from '../ImportSuccess/ImportSuccess'
+import LoadingSpinner from '../LoadingSpringer/LoadingSpinner'
 
 function ImportForm() {
   const [fileName, setFileName] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
 
     const handleFileChange = (event) => {
       setFileName(event.target.files[0]?.name || '')
@@ -15,6 +18,7 @@ function ImportForm() {
 
     const handleFormSubmit = (event) => {
       event.preventDefault();
+      setIsLoading(true)
       
       const formData = new FormData();
       formData.append('title', event.target.title.value);
@@ -26,10 +30,12 @@ function ImportForm() {
   
       axios.post('http://localhost:5000/upload', formData)
         .then(response => {
+          setIsLoading(false)
           console.log('Success:', response.data);
           displaySuccess();
         })
         .catch(error => {
+          setIsLoading(false)
           console.error('Error:', error);
           setErrorMessage(error.response?.data?.message || 'An unexpected error occurred.');
           displayFail();
@@ -103,6 +109,8 @@ function ImportForm() {
     <input className='submit' type="submit" value={'SHARE'} />
   </form>
   <ImportFail errorMessage = {errorMessage} />
+  <ImportSuccess />
+  {isLoading && <LoadingSpinner />}
   </div>
   )
 }
