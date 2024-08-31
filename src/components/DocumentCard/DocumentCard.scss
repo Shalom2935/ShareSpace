@@ -11,6 +11,7 @@
 
     @include flex(column,space-between,flex-start,13px);
     &_intro{
+        //position: relative;
         @include flex($gap:10px);
         
         width: 100%;
@@ -21,6 +22,10 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow:ellipsis;
+            // &:hover{
+            //     position: absolute;
+            //     overflow: visible;
+            // }
             
         }
         &__icon.pdf{

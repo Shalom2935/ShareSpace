@@ -9,9 +9,10 @@ const DocumentGrid = ({ documents, onSearchClick }) => {
         <div className='grid'>
             {documents.map(doc => (
                 <DocumentCard 
-                    key={doc.id} 
+                    key={doc._id} 
                     title={doc.title} 
-                    type={doc.type}
+                    fileType={doc.fileType}
+                    id = {doc._id}
                 />
             ))}
         </div>

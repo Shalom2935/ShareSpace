@@ -28,7 +28,7 @@ function Suggestion({ searchTerm, isFocus }) {
         {filteredList.map(e => (
             <div 
               className="suggestion_item" 
-              key={e.id}
+              key={e._id}
               >
               {e.title}
               </div>
