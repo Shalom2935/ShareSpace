@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import axios from 'axios';
 import PropTypes from 'prop-types'
 import './DocumentCard.scss'
+
 
 function DocumentCard({ id, title, fileType }) {
   const fileTypeMapping = {
@@ -11,7 +12,7 @@ function DocumentCard({ id, title, fileType }) {
 };
 
 const fileTypeKey = fileTypeMapping[fileType]
-
+const isPreviewDisabled = fileType === 'application/msword' || fileType === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
 // const getFileName = async () => {
 //   try{
 //     const response = await axios.get('http://localhost:5000/filename')
@@ -51,6 +52,25 @@ const handleDownload = async () => {
   } catch (error) {
     console.error('Error downloading the file:', error);
   }
+}
+
+const previewDocument = async () => {
+  try {
+    const response = await axios({
+      url: `http://localhost:5000/preview/${id}`,
+      method: 'GET',
+      responseType: 'blob',
+    });
+
+    const url = window.URL.createObjectURL(response.data);
+    const newWindow = window.open(url, '_blank'); 
+    
+    newWindow.onload = () => {
+      window.URL.revokeObjectURL(url); 
+    };
+  } catch (error) {
+    console.error('Error previewing the file:', error);
+  }
 };
   return (
     <div className="card">
@@ -60,7 +80,9 @@ const handleDownload = async () => {
       </div>
       <div className="card_content"></div>
       <div className="card_action">
-        <button className="card_action__view">
+        <button className="card_action__view" 
+        onClick={isPreviewDisabled ? null : () => previewDocument()}
+        disabled={isPreviewDisabled}>
           <svg width="25" viewBox="0 0 18 13" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M17.2683 6.19667C15.8456 3.11278 12.6389 0 8.66667 0C4.69444 0 1.48778 3.11278 0.065 6.19667C0.022153 6.29205 0 6.39543 0 6.5C0 6.60457 0.022153 6.70795 0.065 6.80333C1.48778 9.88722 4.69444 13 8.66667 13C12.6389 13 15.8456 9.88722 17.2683 6.80333C17.3112 6.70795 17.3333 6.60457 17.3333 6.5C17.3333 6.39543 17.3112 6.29205 17.2683 6.19667ZM8.66667 10.1111C7.95246 10.1111 7.25429 9.89932 6.66044 9.50253C6.0666 9.10574 5.60375 8.54176 5.33044 7.88191C5.05712 7.22207 4.98561 6.49599 5.12494 5.79551C5.26428 5.09502 5.6082 4.45158 6.11323 3.94656C6.61825 3.44154 7.26169 3.09761 7.96217 2.95828C8.66266 2.81894 9.38873 2.89045 10.0486 3.16377C10.7084 3.43708 11.2724 3.89993 11.6692 4.49377C12.066 5.08762 12.2778 5.78579 12.2778 6.5C12.2766 7.45737 11.8958 8.37521 11.2188 9.05217C10.5419 9.72914 9.62404 10.11 8.66667 10.1111Z" fill="black"/>
           <path d="M8.66667 8.66668C9.86328 8.66668 10.8333 7.69663 10.8333 6.50001C10.8333 5.30339 9.86328 4.33334 8.66667 4.33334C7.47005 4.33334 6.5 5.30339 6.5 6.50001C6.5 7.69663 7.47005 8.66668 8.66667 8.66668Z" fill="black"/>

@@ -59,6 +59,16 @@
                 cursor: pointer;
             }
         }
+        &__view:disabled{
+            svg {
+                path{
+                    fill: lighten(black,30%);
+                }
+            }
+            &:hover{
+                cursor: not-allowed;
+            }
+        }
     }
     @include media($small) {
         width: 170px;
