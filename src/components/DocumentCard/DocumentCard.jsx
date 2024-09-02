@@ -1,10 +1,16 @@
 import React from 'react'
 import axios from 'axios';
 import PropTypes from 'prop-types'
+import { useNavigate } from 'react-router-dom';
 import './DocumentCard.scss'
 
 
 function DocumentCard({ id, title, fileType, image }) {
+  const navigate = useNavigate()
+
+  const handleCardClick = () => {
+    navigate(`/documents/${id}`);
+  }
   const fileTypeMapping = {
     'application/pdf': 'pdf',
     'application/msword': 'word',
@@ -13,16 +19,6 @@ function DocumentCard({ id, title, fileType, image }) {
 
 const fileTypeKey = fileTypeMapping[fileType]
 const isPreviewDisabled = fileType === 'application/msword' || fileType === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
-// const getFileName = async () => {
-//   try{
-//     const response = await axios.get('http://localhost:5000/filename')
-//     console.log(response.data)
-//     console.log('yes')
-//     return response.data
-//   } catch(error){
-//     console.error('Error while fetching the file name')
-//   }
-// }
 
 const handleDownload = async () => {
   try {
@@ -79,7 +75,7 @@ const previewDocument = async () => {
         <div className={`card_intro__icon ${fileTypeKey}`}></div>
         <div className="card_intro__title">{title}</div>
       </div>
-      <div className="card_content" style={{backgroundImage: `url('${image}')`}}></div>
+      <div className="card_content" style={{backgroundImage: `url('${image}')`}} onClick={handleCardClick}></div>
       <div className="card_action">
         <button className="card_action__view" 
         onClick={isPreviewDisabled ? null : () => previewDocument()}

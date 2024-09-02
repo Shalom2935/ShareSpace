@@ -5,6 +5,7 @@ import Import from './pages/Import/Import';
 import Files from './pages/Files/Files';
 import Downloads from './pages/Download/Downloads';
 import Contact from './pages/Contact/Contact';
+import FileInfo from './pages/FileInfo/FileInfo';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path='/files' element={<Files />} />
         <Route path='/downloads' element={<Downloads />} />
         <Route path='/contact' element={<Contact />} />
+        <Route path='/documents/:id' element={<FileInfo />} />
       </Routes>
     </main>
   );

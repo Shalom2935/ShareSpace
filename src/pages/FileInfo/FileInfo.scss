@@ -1,0 +1,9 @@
+@import '../../index.scss';
+
+.fileinfo{
+    &_main, &_loading, &_error {
+        margin-top: 160px;
+        margin-left: 285px;
+        padding: 20px 30px;
+    }
+}
