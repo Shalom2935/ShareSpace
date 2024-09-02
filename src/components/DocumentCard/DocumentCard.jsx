@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import axios from 'axios';
 import PropTypes from 'prop-types'
 import './DocumentCard.scss'
 
 
-function DocumentCard({ id, title, fileType }) {
+function DocumentCard({ id, title, fileType, image }) {
   const fileTypeMapping = {
     'application/pdf': 'pdf',
     'application/msword': 'word',
@@ -63,6 +63,7 @@ const previewDocument = async () => {
     });
 
     const url = window.URL.createObjectURL(response.data);
+    console.log(response)
     const newWindow = window.open(url, '_blank'); 
     
     newWindow.onload = () => {
@@ -78,7 +79,7 @@ const previewDocument = async () => {
         <div className={`card_intro__icon ${fileTypeKey}`}></div>
         <div className="card_intro__title">{title}</div>
       </div>
-      <div className="card_content"></div>
+      <div className="card_content" style={{backgroundImage: `url('${image}')`}}></div>
       <div className="card_action">
         <button className="card_action__view" 
         onClick={isPreviewDisabled ? null : () => previewDocument()}

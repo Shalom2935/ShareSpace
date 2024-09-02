@@ -13,6 +13,7 @@ const DocumentGrid = ({ documents, onSearchClick }) => {
                     title={doc.title} 
                     fileType={doc.fileType}
                     id = {doc._id}
+                    image = {doc.previewImageUrl}
                 />
             ))}
         </div>

@@ -47,7 +47,12 @@
         width: 100%;
         height: 158px;
         background-color: white;
+        background-size: cover;
+        background-repeat: no-repeat;
         border-radius: 6px;
+        &:hover{
+            cursor: pointer;
+        }
     }
     &_action{
         width: 100%;
