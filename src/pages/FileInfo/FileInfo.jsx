@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import { handlePreview } from '../../utils/handlePreview'
+import { handleDownload } from '../../utils/handleDownload'
 import axios from 'axios'
 import NavBar from '../../components/NavBar/NavBar'
 import Header from '../../components/Header/Header'
@@ -37,13 +39,18 @@ const FileInfo = () => {
             <p className="fileinfo_error">{error}</p>
           ) : (
             <main className='fileinfo_main'>
-              <div className="fileinfo_preview">
-                <img src={document.previewImageUrl} alt={`${document.title} preview`} />
+              <div className="fileinfo_main__preview" style={{backgroundImage : `url('${document.previewImageUrl}')`}}>
+                
               </div>
-              <div className="fileinfo_details">
-                <div className="fileinfo_details__title">{document.title}</div>
-                <div className="fileinfo_details__type">{document.type}</div>
-                <div className="fileinfo_details__semnfield">{document.semester} {document.subfield}</div>
+              <div className="fileinfo_main__details">
+                <div className="fileinfo_main__details___title">{document.title}</div>
+                <div className="fileinfo_main__details___type">{document.type}</div>
+                <div className="fileinfo_main__details___semnfield">s{document.semester}{`\u00A0 ${document.subfield}`}</div>
+                <div className="fileinfo_main__details___description"><p>description :</p>{document.description}</div>
+              </div>
+              <div className="fileinfo_main__action">
+                <button className='preview' onClick={() => handlePreview(id)}>preview</button>
+                <button className="download" onClick={() => handleDownload(id)}>download</button>
               </div>
             </main>
           )}

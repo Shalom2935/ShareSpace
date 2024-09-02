@@ -5,5 +5,66 @@
         margin-top: 160px;
         margin-left: 285px;
         padding: 20px 30px;
+        
     }
+    &_main{
+        height: auto;
+        @include flex($justify:flex-start);
+        flex-wrap: wrap;
+        &__preview{
+            width: 200px;
+            height: 240px;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        &__details{
+            padding-top: 40px;
+            align-self: flex-start;
+            @include flex(column,flex-start,flex-start,10px);
+            &___title{
+                font-size: $sizexxl;
+                font-weight: $semibold;
+                text-transform: capitalize;
+            }
+            &___type{
+                font-size: 13px;
+                color: $GreyDark;
+            }
+            &___semnfield{
+                font-size: 13px;
+                font-style: italic;
+                color: $GreyDark;
+                font-weight: $semibold;
+            }
+            &___description{
+                font-size: 13px;
+                color: $GreyDark;
+                p{
+                    font-weight: $semibold;
+                    color: black;
+                    margin-bottom: 7px;
+                }
+            }
+        }
+        &__action{
+            width: 100%;
+            @include flex($justify:flex-start, $gap:10px);
+
+            button{
+                padding: 10px 15px;
+                border: none;
+                border-radius: 6px;
+                &:hover{
+                    cursor: pointer;
+                    opacity: 95%;
+                }
+            }
+        }   
+    }
+    @include media($small){
+        &_main{
+            margin-left: 0px;
+            padding: 20px 20px;
+        }
+    }   
 }

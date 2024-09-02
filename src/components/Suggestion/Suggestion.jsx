@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { fetchDocuments } from '../../utils/fetchDocuments'
-import { filterDocuments } from '../../utils/filterDocuments'
+import { suggestionFilter } from './suggestionFilter'
 import './Suggestion.scss'
 
 function Suggestion({ searchTerm, isFocus }) {
@@ -16,7 +16,7 @@ function Suggestion({ searchTerm, isFocus }) {
 
     useEffect(() => {
       const filterSearch = () => {
-      setFilteredList(searchTerm && isFocus ? filterDocuments(list,searchTerm) : [])
+      setFilteredList(searchTerm && isFocus ? suggestionFilter(list,searchTerm) : [])
       }
       filterSearch()
     
@@ -24,7 +24,9 @@ function Suggestion({ searchTerm, isFocus }) {
 
 
   return (
-    <div className='suggestion hide'>
+  <>
+    { filteredList.length > 0 &&
+      <div className='suggestion hide'>
         {filteredList.map(e => (
             <div 
               className="suggestion_item" 
@@ -34,6 +36,8 @@ function Suggestion({ searchTerm, isFocus }) {
               </div>
         ))}
     </div>
+  }
+  </>
   )
 }
 

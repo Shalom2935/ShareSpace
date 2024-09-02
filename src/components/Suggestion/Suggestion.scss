@@ -12,6 +12,8 @@
     top: 60px;
     font-size: $sizevl;
     padding: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
     border-radius: 6px;
 
 
@@ -28,8 +30,14 @@
     }
 
     &_item{
-        margin-top: 20px;
-        margin-left: 20px;
-        margin-bottom: 20px;
+        padding-top: 10px;
+        padding-left: 20px;
+        padding-bottom: 10px;
+        
+        &:hover{
+            cursor: pointer;
+            background-color: $GreyLight;
+        }
+        
     }
 }
