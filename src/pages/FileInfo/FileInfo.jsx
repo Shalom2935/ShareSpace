@@ -15,9 +15,10 @@ const FileInfo = () => {
         
         const fetchDocument = async () => {
             try {
-              const response = await axios.get(`/api/documents/${id}`);
+              const response = await axios.get(`http://localhost:5000/documents/${id}`);
               setDocument(response.data);
-              setLoading(false);
+              setLoading(false)
+              //console.log(document)
             } catch (err) {
               setError('Failed to fetch document info refresh the page');
               setLoading(false);
