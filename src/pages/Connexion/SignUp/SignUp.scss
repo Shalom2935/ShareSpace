@@ -1,0 +1,6 @@
+@import '../../../index.scss';
+
+.signup{
+    outline: 1px solid red;
+    @include flex($direction:column);
+}

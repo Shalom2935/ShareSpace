@@ -3,7 +3,7 @@ import { fetchDocuments } from '../../utils/fetchDocuments'
 import { suggestionFilter } from './suggestionFilter'
 import './Suggestion.scss'
 
-function Suggestion({ searchTerm, isFocus }) {
+function Suggestion({ searchTerm, isFocus, onClickSuggestion }) {
     const [list, setList] = useState([])
     const [filteredList, setFilteredList] = useState([])
 
@@ -26,11 +26,15 @@ function Suggestion({ searchTerm, isFocus }) {
   return (
   <>
     { filteredList.length > 0 &&
-      <div className='suggestion hide'>
+      <div className='suggestion'>
         {filteredList.map(e => (
             <div 
               className="suggestion_item" 
               key={e._id}
+              onClick={() => {
+                onClickSuggestion(e);
+                console.log('yes');
+              }}
               >
               {e.title}
               </div>

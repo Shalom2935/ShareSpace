@@ -6,7 +6,7 @@ import SearchBarMobile from '../SearchBar/SearchBarMobile'
 import './Header.scss'
 import { displayNav } from '../NavBar/toggleNavVisibility'
 
-function Header({ searchTerm, onSearch, onSearchClick, disableSearch = true}) {
+function Header({ searchTerm, onSearch, onSearchClick, onClickSuggestion, disableSearch = true}) {
   const [showSearch, setShowSearch] = useState(false)
 
   return (
@@ -16,8 +16,8 @@ function Header({ searchTerm, onSearch, onSearchClick, disableSearch = true}) {
             <Logo />
             <Slogan />
           </div>
-          <SearchBarDesktop searchTerm={searchTerm} onSearch={onSearch} onSearchClick={onSearchClick} disable = {disableSearch}/>
-          {showSearch && <SearchBarMobile searchTerm={searchTerm} onSearch={onSearch} onSearchClick={onSearchClick}  />}
+          <SearchBarDesktop searchTerm={searchTerm} onSearch={onSearch} onSearchClick={onSearchClick} disable = {disableSearch} onClickSuggestion={onClickSuggestion}/>
+          {showSearch && <SearchBarMobile searchTerm={searchTerm} onSearch={onSearch} onSearchClick={onSearchClick} onClickSuggestion={onClickSuggestion} />}
           <div className="hamburger" onClick={displayNav}>
             <svg width="25" height="28" viewBox="0 0 25 28" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M3.20312 5.6875H21.7578V8.44375H3.20312V5.6875ZM3.20312 12.6H21.7578V15.4H3.20312V12.6ZM3.20312 19.5563H21.7578V22.3125H3.20312V19.5563Z" fill="white"/>

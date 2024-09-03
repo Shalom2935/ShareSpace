@@ -62,7 +62,7 @@
         }   
     }
     @include media($small){
-        &_main{
+        &_main,&_loading,&_error{
             margin-left: 0px;
             padding: 20px 20px;
         }

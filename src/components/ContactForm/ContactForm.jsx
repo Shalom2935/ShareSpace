@@ -10,7 +10,7 @@ function ContactForm() {
       <input type="text" name='name' placeholder='Enter your name' required />
     </div>
     <div className="mail">
-      <label htmlFor="mail">Type</label>
+      <label htmlFor="mail">Email</label>
       <input type="text" name='mail' placeholder='xyz@gmail.com' required />
     </div> 
     <div className="phone">
