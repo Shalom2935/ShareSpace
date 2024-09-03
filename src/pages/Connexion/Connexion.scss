@@ -3,5 +3,17 @@
 .connexion{
     background-color: rgb(243, 243, 243);
     min-height: 100vh;
-    @include flex;
+    @include flex($direction:column,$gap:5px);
+    &_title{
+        width: 400px;
+        max-width: 80vw;
+        @include flex($justify:space-between,$gap:5px);
+        & > div{
+            width: 50%;
+            text-align: center;
+            background-color: $GreyLight;
+            padding: 10px;
+            border-radius: 6px;
+        }
+    }
 }

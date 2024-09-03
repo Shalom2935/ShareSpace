@@ -1,6 +1,56 @@
 @import '../../../index.scss';
 
 .signup{
-    outline: 1px solid red;
-    @include flex($direction:column);
+    @include flex;
+    background-color: rgb(253, 253, 253);
+    width: 400px;
+    max-width: 80vw;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-radius: 10px;
+    &_form{
+        @include flex($direction:column,$gap:10px);
+        & > div {
+            @include flex($direction:column,$align:flex-start,$gap:5px);
+            font-size: $sizevl;
+            font-weight: $semibold;
+            color: $GreyDark;
+            input{
+                height: 25px;
+                padding: 5px;
+                border: 1px solid $GreyLight;
+                border-radius: 3px;
+                &:focus{
+                    outline: none;
+                }
+            }
+            
+        }
+        p{
+            color: $GreyDark;
+            font-size: $sizel;
+            margin-top: 10px;
+            span{
+                color: blue;
+                font-weight: $semibold;
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+        }
+        button{
+            background-color: $Brown;
+            color: white;
+            margin-top: 10px;
+            padding:5px 15px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            &:hover{
+                background-color: white;
+                border: 1px solid $Brown;
+                color: $Brown;
+            }
+        }
+    }
 }

@@ -21,6 +21,8 @@ function SignUp() {
             <label htmlFor="password">Password</label>
             <input type="password" name='password' />            
           </div>
+          <p>Already have an account? <span>Login</span></p>
+          <button>Sign Up</button>
         </form>
     </div>
   )
