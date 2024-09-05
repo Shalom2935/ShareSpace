@@ -1,10 +1,11 @@
 import React from 'react'
 import './Login.scss'
+import { handleLogin } from './handleLogin'
 
-function Login() {
+function Login({ showSignUp }) {
   return (
     <div className='login'>
-        <form action="" className="login_form">
+        <form className="login_form" onSubmit={handleLogin}>
           <div className="login_form__matricule">
             <label htmlFor="matricule">Matricule</label>
             <input type="text" name='matricule' />            
@@ -13,8 +14,8 @@ function Login() {
             <label htmlFor="password">Password</label>
             <input type="password" name='password' />            
           </div>
-          <p>Don't have an account? <span>Sign Up</span></p>
-          <button>Login</button>
+          <p>Don't have an account? <span onClick={showSignUp}>Sign Up</span></p>
+          <button type='submit'>Login</button>
         </form>
     </div>
   )

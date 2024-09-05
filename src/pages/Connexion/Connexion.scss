@@ -7,7 +7,11 @@
     &_title{
         width: 400px;
         max-width: 80vw;
+        font-weight: $semibold;
         @include flex($justify:space-between,$gap:5px);
+        &:hover{
+            cursor: pointer;
+        }
         & > div{
             width: 50%;
             text-align: center;

@@ -1,0 +1,16 @@
+@import '../../../index.scss';
+
+.onLoad {
+    border: 2px solid white;
+    border-left-color: $GreyDark;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+  }
+      
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+}
