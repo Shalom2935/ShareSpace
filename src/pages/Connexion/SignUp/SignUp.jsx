@@ -49,17 +49,17 @@ function SignUp({ showLogin }) {
           </div>
           <div className="signup_form__matricule">
             <label htmlFor="matricule">Matricule</label>
-            <input type="text" name='matricule' />
+            <input type="text" name='matricule' style={ errors.matriculeError ? {border: '1px solid red'} : {}} />
             {errors.matriculeError && <p className="matriculeerror">{errors.matriculeError}</p>}            
           </div>
           <div className="signup_form__mail">
             <label htmlFor="email">Email</label>
-            <input type="email" name='email' />
+            <input type="email" name='email' style={ errors.emailError ? {border: '1px solid red'} : {}} />
             {errors.emailError && <p className="emailerror">{errors.emailError}</p>}            
           </div>
           <div className="signup_form__password">
             <label htmlFor="password">Password</label>
-            <input type="password" name='password' />
+            <input type="password" name='password' style={ errors.passwordError ? {border: '1px solid red'} : {}} />
             {errors.passwordError && <p className="passworderror">{errors.passwordError}</p>}            
           </div>
           <p>Already have an account? <span onClick={showLogin}>Login</span></p>
