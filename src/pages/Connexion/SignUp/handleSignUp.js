@@ -1,15 +1,14 @@
 import axios from "axios"
 
-export const handleSignUp = async (e) => {
-    e.preventDefault();
-
-    const formData = new FormData(e.target);
-    const data = Object.fromEntries(formData);
+export const handleSignUp = async (formData) => {
 
     try {
-        const response = await axios.post('http://localhost:5000/api/auth/signup', data);
-        console.log(response.data);
+        const response = await axios.post('http://localhost:5000/api/auth/signup', formData);
+        return response.data;
     } catch (error) {
-        console.error(error);
+        if (error.response && error.response.data) {
+            throw error.response.data;
+        }
+        throw new Error('Something went wrong, plese try again.');
     }
 }
