@@ -49,9 +49,11 @@ function SignUp({ showLogin }) {
           </div>
           <div className="signup_form__matricule">
             <label htmlFor="matricule">Matricule</label>
-            <input type="text" name='matricule' style={ errors.matriculeError ? {border: '1px solid red'} : {}} />
-            {errors.matriculeError && <p className="matriculeerror">{errors.matriculeError}</p>}            
-          </div>
+            <div className='wrapper'>
+            <input type="text" name='matricule' style={ errors.matriculeError ? {border: '2px solid red'} : {}} />
+            {errors.matriculeError && <p className="signuperror">{errors.matriculeError}</p>}                     
+            </div>
+         </div>
           <div className="signup_form__mail">
             <label htmlFor="email">Email</label>
             <input type="email" name='email' style={ errors.emailError ? {border: '1px solid red'} : {}} />

@@ -7,6 +7,7 @@ export const handleSignUp = async (formData) => {
         return response.data;
     } catch (error) {
         if (error.response && error.response.data) {
+            console.log(error.response.data);
             throw error.response.data;
         }
         throw new Error('Something went wrong, plese try again.');
