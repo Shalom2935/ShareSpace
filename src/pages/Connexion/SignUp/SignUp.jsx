@@ -5,12 +5,43 @@ import OnLoad from '../onLoad/onLoad'
 
 function SignUp({ showLogin }) {
   const [onLoad, setOnLoad] = useState(false);
+  const [errors, setErrors] = useState({
+    matriculeError: '',
+    emailError: '',
+    passwordError: ''
+  });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setOnLoad(true);
+
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData);
+
+    try {
+      await handleSignUp(data);
+
+      setErrors({
+        matriculeError: '',
+        emailError: '',
+        passwordError: ''
+      });
+    } catch (error) {
+      setErrors({
+        matriculeError: error.matricule || '',
+        emailError: error.email || '',
+        passwordError: error.password || ''
+      });
+    } finally {
+      setOnLoad(false);
+    }
+  }
 
   return (
     <div className='signup'>
         <form 
           className="signup_form" 
-          onSubmit={handleSignUp}
+          onSubmit={handleSubmit}
         >
           <div className="signup_form__name">
             <label htmlFor="name">Name</label>
@@ -19,16 +50,17 @@ function SignUp({ showLogin }) {
           <div className="signup_form__matricule">
             <label htmlFor="matricule">Matricule</label>
             <input type="text" name='matricule' />
-            <p className="matriculeerror" style={{display:'none'}}></p>            
+            {errors.matriculeError && <p className="matriculeerror">{errors.matriculeError}</p>}            
           </div>
           <div className="signup_form__mail">
             <label htmlFor="email">Email</label>
             <input type="email" name='email' />
-            <p className="emailerror" style={{display:'none'}}></p>            
+            {errors.emailError && <p className="emailerror">{errors.emailError}</p>}            
           </div>
           <div className="signup_form__password">
             <label htmlFor="password">Password</label>
-            <input type="password" name='password' />            
+            <input type="password" name='password' />
+            {errors.passwordError && <p className="passworderror">{errors.passwordError}</p>}            
           </div>
           <p>Already have an account? <span onClick={showLogin}>Login</span></p>
           <button 
