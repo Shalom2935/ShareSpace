@@ -4,8 +4,10 @@ import ImportLink from './NavLinks/ImportLink'
 import FilesLink from './NavLinks/FilesLink'
 import DownloadsLink from './NavLinks/DownloadsLink'
 import ContactLink from './NavLinks/ContactLink'
+import LogOut from './NavLinks/LogOut'
 import './NavBar.scss'
 import { hideNav } from './toggleNavVisibility'
+
 
 // Define an array of links for easier maintenance
 
@@ -15,6 +17,7 @@ const links = [
   { Component: FilesLink, path: '/files', label: 'Files' },
   { Component: DownloadsLink, path: '/downloads', label: 'Downloads' },
   { Component: ContactLink, path: '/contact', label: 'Contact' },
+  { Component: LogOut, path: '/connexion', label: 'LogOut' },
 ]
 
 function NavBar() {
