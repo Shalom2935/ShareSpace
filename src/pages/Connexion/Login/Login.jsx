@@ -9,6 +9,7 @@ function Login({ showSignUp }) {
   const { login } = useAuth();
   const [err, setErr] = useState('');
   const [onLoad, setOnLoad] = useState(false);
+  const [rememberMe, setRememberMe] = useState(false);
   const [errorAuth, setErrorAuth] = useState('');
   const navigate = useNavigate();
   
@@ -23,7 +24,7 @@ function Login({ showSignUp }) {
     try {
       const response = await handleLogin(data);
       const { token } = response;
-      login(token);
+      login(token, rememberMe);
       setErrorAuth('');
       setErr('')
       navigate('/');
@@ -55,6 +56,15 @@ function Login({ showSignUp }) {
               style={ errorAuth ? {border: '2px solid red'} : {} } 
             />            
           </div>
+          <div className='login_form__remember'>
+          <input
+            type="checkbox"
+            id="rememberMe"
+            checked={rememberMe}
+            onChange={(e) => setRememberMe(e.target.checked)}
+          />
+          <label htmlFor="rememberMe">Remember Me</label>
+        </div>
           {errorAuth && <p className='loginerror'>{errorAuth}</p>}
           {err && !errorAuth && <p className='loginerror'>{err}</p>}
           <p>Don't have an account? <span onClick={showSignUp}>Sign Up</span></p>

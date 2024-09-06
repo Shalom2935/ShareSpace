@@ -9,6 +9,7 @@
     padding-bottom: 30px;
     border-radius: 10px;
     &_form{
+        
         @include flex($direction:column,$gap:10px);
         & > div {
             @include flex($direction:column,$align:flex-start,$gap:5px);
@@ -24,7 +25,10 @@
                     outline: none;
                 }
             }
-            
+        }
+        &__remember{
+            width: 90%;
+            @include flex($direction:row !important,$justify:flex-start !important,$align:center !important);
         }
         p{
             color: $GreyDark;

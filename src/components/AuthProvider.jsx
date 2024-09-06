@@ -1,30 +1,40 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-// Créer le contexte
 const AuthContext = createContext();
 
-// Créer le fournisseur
 export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isLoading, setIsLoading] = useState(true); // Ajout d'un état de chargement
+  const navigate = useNavigate();
 
   useEffect(() => {
-    // Vérifie l'état d'authentification au démarrage
     const token = localStorage.getItem('authToken');
-    setIsAuthenticated(!!token);
+    if (token) {
+      setIsAuthenticated(true);
+    }
+    setIsLoading(false); // Fin du chargement après vérification
   }, []);
 
-  const login = (token) => {
-    localStorage.setItem('authToken', token);
+  const login = (token, rememberMe) => {
+    if (rememberMe) {
+      localStorage.setItem('authToken', token);
+    } else {
+      sessionStorage.setItem('authToken', token);
+    }
     setIsAuthenticated(true);
+    navigate('/');
   };
 
   const logout = () => {
     localStorage.removeItem('authToken');
+    sessionStorage.removeItem('authToken');
     setIsAuthenticated(false);
+    navigate('/connexion');
   };
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, login, logout }}>
+    <AuthContext.Provider value={{ isAuthenticated, isLoading, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
