@@ -39,6 +39,7 @@
             }
         }
         button{
+            @include flex($gap:5px);
             background-color: $Brown;
             color: white;
             margin-top: 10px;
@@ -51,6 +52,11 @@
                 border: 1px solid $Brown;
                 color: $Brown;
             }
+        }
+        .loginerror{
+            font-size: 13px;
+            color: red;
+            margin-top: 5px;
         }
     }
 }

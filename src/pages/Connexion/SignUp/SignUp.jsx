@@ -4,8 +4,9 @@ import { handleSignUp } from './handleSignUp'
 import OnLoad from '../onLoad/onLoad'
 
 function SignUp({ showLogin }) {
- const [password, setPassword] = useState('');
- const [confirmPassword, setConfirmPassword] = useState('');
+  const [err, setErr] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [onLoad, setOnLoad] = useState(false);
   const [errors, setErrors] = useState({
     matriculeError: '',
@@ -23,13 +24,20 @@ function SignUp({ showLogin }) {
     }
 
     if (confirmPassword.length && (password !== confirmPassword)) {
-      setErrors({ confirmPasswordError : 'Passwors do not match' });
+      setErrors({ confirmPasswordError : 'Passwords do not match' });
     }
   }, [password, confirmPassword]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setOnLoad(true);
+    setErr('');
+
+    if (Object.values(errors).some(error => error !== '')) {
+      setErr('Please fix the errors before submitting.');
+      setOnLoad(false);
+      return;
+    }
 
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
@@ -45,6 +53,8 @@ function SignUp({ showLogin }) {
         passwordError: '',
         confirmPasswordError: ''
       });
+      window.location.reload();
+
     } catch (error) {
       setErrors({
         matriculeError: error.matricule || '',
@@ -52,6 +62,7 @@ function SignUp({ showLogin }) {
         passwordError: error.password || '',
         confirmPasswordError: ''
       });
+      setErr('Something went wrong Please retry');
     } finally {
       setOnLoad(false);
     }
@@ -103,6 +114,14 @@ function SignUp({ showLogin }) {
               {errors.confirmPasswordError && <p className="signuperror">{errors.confirmPasswordError}</p>}            
             </div>
           </div>
+          {err 
+            && 
+            <p 
+              className='signuperror'
+              style={{fontSize: '13px'}}
+            >
+            {err}
+            </p>}
           <p>Already have an account? <span onClick={showLogin}>Login</span></p>
           <button 
             type='submit' 
