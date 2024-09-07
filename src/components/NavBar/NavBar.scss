@@ -77,6 +77,14 @@
             }
             .navlink{
                 &_icon{
+                    &.logout{
+                        svg{
+                            path{
+                                fill: none;
+                                stroke: white;
+                            }
+                        }
+                    }
                     svg{
                         path{
                             fill: white;

@@ -16,19 +16,24 @@ export const AuthProvider = ({ children }) => {
     setIsLoading(false); // Fin du chargement après vérification
   }, []);
 
-  const login = (token, rememberMe) => {
+  const login = (token, matricule, rememberMe) => {
     if (rememberMe) {
       localStorage.setItem('authToken', token);
+      localStorage.setItem('matricule', matricule);
     } else {
       sessionStorage.setItem('authToken', token);
+      sessionStorage.setItem('matricule', matricule);
     }
+    console.log({ token, matricule })
     setIsAuthenticated(true);
     navigate('/');
   };
 
   const logout = () => {
     localStorage.removeItem('authToken');
+    localStorage.removeItem('matricule');
     sessionStorage.removeItem('authToken');
+    sessionStorage.removeItem('matricule');
     setIsAuthenticated(false);
     navigate('/connexion');
   };

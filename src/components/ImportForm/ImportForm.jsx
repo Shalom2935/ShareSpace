@@ -19,15 +19,18 @@ function ImportForm() {
     const handleFormSubmit = (event) => {
       event.preventDefault();
       setIsLoading(true)
-      
+  
       const formData = new FormData();
+      const matricule = localStorage.getItem('matricule');
+      console.log(matricule)
+      formData.append('author', matricule);
       formData.append('title', event.target.title.value);
       formData.append('type', event.target.type.value);
       formData.append('semester', event.target.semester.value);
       formData.append('subfield', event.target.subfield.value);
       formData.append('description', event.target.description.value);
       formData.append('file', event.target.file.files[0]);
-  
+      
       axios.post('http://localhost:5000/upload', formData)
         .then(response => {
           setIsLoading(false)

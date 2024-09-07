@@ -23,8 +23,8 @@ function Login({ showSignUp }) {
     
     try {
       const response = await handleLogin(data);
-      const { token } = response;
-      login(token, rememberMe);
+      const { token, matricule } = response;
+      login(token, matricule, rememberMe);
       setErrorAuth('');
       setErr('')
       navigate('/');
