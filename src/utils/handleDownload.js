@@ -4,7 +4,7 @@ export const handleDownload = async (id) => {
     try {
   
       const response = await axios({
-        url: `http://localhost:5000/download/${id}`,
+        url: `https://sharespace-develop.uc.r.appspot.com/download/${id}`,
         method: 'GET',
         responseType: 'blob',
     });

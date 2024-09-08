@@ -17,7 +17,7 @@ const FileInfo = () => {
         
         const fetchDocument = async () => {
             try {
-              const response = await axios.get(`http://localhost:5000/documents/${id}`);
+              const response = await axios.get(`https://sharespace-develop.uc.r.appspot.com/documents/${id}`);
               setDocument(response.data);
               setLoading(false)
               //console.log(document)

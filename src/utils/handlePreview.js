@@ -3,7 +3,7 @@ import axios from "axios";
 export const handlePreview = async (id) => {
     try {
       const response = await axios({
-        url: `http://localhost:5000/preview/${id}`,
+        url: `https://sharespace-develop.uc.r.appspot.com/preview/${id}`,
         method: 'GET',
         responseType: 'blob',
       });
