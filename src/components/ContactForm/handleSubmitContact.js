@@ -15,7 +15,7 @@ export const handleSubmitContact= (event) => {
         message: event.target.message.value
     }
 
-    axios.post('https://sharespace-develop.uc.r.appspot.com/api/submit-contact-form', formData)
+    axios.post('https://sharespace-develop.uc.r.appspot.com/submit-contact-form', formData)
     .then(response => {
         console.log('Success:', response.data)
         displaySuccess()
