@@ -31,7 +31,7 @@ function ImportForm() {
       formData.append('description', event.target.description.value);
       formData.append('file', event.target.file.files[0]);
       
-      axios.post('https://sharespace-develop.uc.r.appspot.com/upload', formData)
+      axios.post('https://sharespace-develop.uc.r.appspot.com/api/upload', formData)
         .then(response => {
           setIsLoading(false)
           console.log('Success:', response.data);
