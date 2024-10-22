@@ -15,12 +15,12 @@ function App() {
     <main>
       <AuthProvider>
       <Routes>
-        <Route path='/' element={<ProtectedRoute><Home /></ProtectedRoute>} />
-        <Route path='/import' element={<ProtectedRoute><Import /></ProtectedRoute>} />
-        <Route path='/files' element={<ProtectedRoute><Files /></ProtectedRoute>} />
+        <Route path='/' element={<Home />} />
+        <Route path='/import' element={<Import />} />
+        <Route path='/files' element={<Files />} />
         <Route path='/downloads' element={<ProtectedRoute><Downloads /></ProtectedRoute>} />
         <Route path='/contact' element={<ProtectedRoute><Contact /></ProtectedRoute>} />
-        <Route path='/documents/:id' element={<ProtectedRoute><FileInfo /></ProtectedRoute>} />
+        <Route path='/documents/:id' element={<FileInfo />} />
         <Route path='/connexion' element={<Connexion />} /> 
       </Routes>
       </AuthProvider>
