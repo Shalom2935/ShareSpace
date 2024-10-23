@@ -30,12 +30,6 @@
       zoom: 1.1; // Slight zoom increase for readability
     }
   
-    @media (min-width: 1200px) {
-      width: auto;
-      max-width: 100%; // Let it fit within the natural size of the doc
-      max-height: 100%; // Prevent exceeding the document height
-    }
-  
     .pdf-header {
       background-color: #f7f7f7;
       border-bottom: 1px solid #e0e0e0;
@@ -51,10 +45,6 @@
   
       @media (max-width: 768px) {
         font-size: 0.75rem; // Smaller text for mobile
-      }
-  
-      @media (min-width: 1200px) {
-        display: none; // Hide close button and header on large screens
       }
   
       .current-page,
@@ -78,10 +68,6 @@
         padding: 0.25rem;
         margin-right:15px;
         color: #1f2937;
-  
-        @media (min-width: 1200px) {
-          display: none; // Hide close button on large screens
-        }
       }
     }
   
