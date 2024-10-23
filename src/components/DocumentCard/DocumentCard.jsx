@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { useNavigate } from 'react-router-dom';
-import { handlePreview } from '../../utils/handlePreview';
-import { handleDownload } from '../../utils/handleDownload';
+// import { handlePreview } from '../../utils/handlePreview';
+// import { handleDownload } from '../../utils/handleDownload';
 import './DocumentCard.scss'
 
 
@@ -19,7 +19,7 @@ function DocumentCard({ id, title, fileType, image }) {
 };
 
 const fileTypeKey = fileTypeMapping[fileType]
-const isPreviewDisabled = fileType === 'application/msword' || fileType === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
+// const isPreviewDisabled = fileType === 'application/msword' || fileType === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
 
   return (
     <div className="card">
